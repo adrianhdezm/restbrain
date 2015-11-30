@@ -1,6 +1,7 @@
 package de.tum.sebis.restbrain.controllers;
 
 import de.tum.sebis.restbrain.models.Workspace;
+
 import io.swagger.inflector.models.RequestContext;
 import io.swagger.inflector.models.ResponseContext;
 

@@ -85,8 +85,8 @@
                 <version>${jetty-version}</version>
                 <configuration>
                     <scanTargets>
-                        <scanTarget>inflector.yaml</scanTarget>
-                        <scanTarget>src/main/swagger/swagger.yaml</scanTarget>
+                        <scanTarget>config/inflector.yaml</scanTarget>
+                        <scanTarget>config/swagger.yaml</scanTarget>
                     </scanTargets>
                     <scanIntervalSeconds>1</scanIntervalSeconds>
                     <webApp>

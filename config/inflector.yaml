@@ -2,8 +2,6 @@ controllerPackage: de.tum.sebis.restbrain.controllers
 
 modelPackage: de.tum.sebis.restbrain.models
 
-swaggerUrl: ./src/main/swagger/swagger.yaml
-
 modelMappings:
   Workspace: de.tum.sebis.restbrain.models.Workspace
 
