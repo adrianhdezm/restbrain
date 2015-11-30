@@ -5,7 +5,6 @@ modelPackage: de.tum.sebis.restbrain.models
 modelMappings:
   Workspace: de.tum.sebis.restbrain.models.Workspace
 
-
 # allows environment to be develop, staging, production.  Production will not start if
 # unimplemented models or methods are detected
 environment: development
