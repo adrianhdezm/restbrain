@@ -1,0 +1,19 @@
+controllerPackage: de.tum.sebis.restbrain.controllers
+
+modelPackage: de.tum.sebis.restbrain.models
+
+swaggerUrl: ./src/main/swagger/swagger.yaml
+
+modelMappings:
+  Workspace: de.tum.sebis.restbrain.models.Workspace
+
+
+# allows environment to be develop, staging, production.  Production will not start if
+# unimplemented models or methods are detected
+environment: development
+
+# loads all by default, or pick and choose
+entityProcessors:
+  - json
+  - xml
+  - yaml

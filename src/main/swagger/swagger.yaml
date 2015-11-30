@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "This is a sample SocioCortex REST API server."
+  version: 1.0.0
+  title: SocioCortex API example YAML
+  contact:
+    email: "sociocortex.sebis@tum.de"
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: /api
+tags:
+  - name: workspace
+    description: Everything about your Workspaces
+
+schemes:
+  - http
+paths:
+  /workspaces:
+    get:
+      tags:
+        - workspace
+      summary: Get a list of workspaces
+      description: This can only be done by the logged in user.
+      operationId: getWorkspaces
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Workspace'
+
+definitions:
+  Workspace:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
