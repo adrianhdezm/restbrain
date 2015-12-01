@@ -11,32 +11,22 @@ import java.io.IOException;
 
 
 public class Main {
-    public static void main( String[] args ) throws IOException {
+    public static void main( String[] args ) throws Exception {
 
-        try {
-
-            if( args.length != 1 ) {
-                System.out.println( "Usage: java -jar ./target/restbrain-0.1.jar config/<options.yml>" );
-                return;
-            }
-
-            SwaggerInflector inflector = new SwaggerInflector(Configuration.read(args[0]));
-
-            //set Servlet
-            ServletContainer servlet = new ServletContainer(inflector);
-            WebServer.INSTANCE().setAppServlet(servlet);
-
-
-            //start
-            WebServer.INSTANCE().start();
-
-
-        } catch (Exception e) {
-
-
-            e.printStackTrace();
+        if( args.length != 1 ) {
+            System.out.println( "Usage: java -jar ./target/restbrain-0.1.jar config/<options.yml>" );
+            return;
         }
 
+        SwaggerInflector inflector = new SwaggerInflector(Configuration.read(args[0]));
+
+        //set Servlet
+        ServletContainer servlet = new ServletContainer(inflector);
+        WebServer.INSTANCE().setAppServlet(servlet);
+
+
+        //start
+        WebServer.INSTANCE().start();
 
     }
 
