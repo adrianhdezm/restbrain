@@ -1,25 +1,42 @@
 package de.tum.sebis.restbrain;
+
 import de.tum.sebis.restbrain.server.WebServer;
+
 import org.glassfish.jersey.servlet.ServletContainer;
+
+import io.swagger.inflector.config.Configuration;
 import io.swagger.inflector.SwaggerInflector;
-import  io.swagger.inflector.utils.CORSFilter;
-import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
+
 
 public class Main {
     public static void main( String[] args ) throws IOException {
 
-        //set Servlet
-        ServletContainer servlet = new ServletContainer(ResourceConfig.forApplicationClass(SwaggerInflector.class));
+        try {
 
-        WebServer.INSTANCE().setAppServlet(servlet);
+            if( args.length != 1 ) {
+                System.out.println( "Usage: java -jar ./target/restbrain-0.1.jar config/<options.yml>" );
+                return;
+            }
 
-        //set Filter
-        WebServer.INSTANCE().setAppFilter(new CORSFilter());
+            SwaggerInflector inflector = new SwaggerInflector(Configuration.read(args[0]));
 
-        //start
-        WebServer.INSTANCE().start();
+            //set Servlet
+            ServletContainer servlet = new ServletContainer(inflector);
+            WebServer.INSTANCE().setAppServlet(servlet);
+
+
+            //start
+            WebServer.INSTANCE().start();
+
+
+        } catch (Exception e) {
+
+
+            e.printStackTrace();
+        }
+
 
     }
 

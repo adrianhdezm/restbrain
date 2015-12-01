@@ -1,3 +1,5 @@
+swaggerUrl: ./config/swagger.yaml
+
 controllerPackage: de.tum.sebis.restbrain.controllers
 
 modelPackage: de.tum.sebis.restbrain.models

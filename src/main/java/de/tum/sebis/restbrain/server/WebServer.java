@@ -1,15 +1,19 @@
 package de.tum.sebis.restbrain.server;
 
 
+
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
+
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+
+import io.swagger.inflector.utils.CORSFilter;
+
 import java.util.EnumSet;
 
 import javax.servlet.http.HttpServlet;
-import javax.servlet.Filter;
 import javax.servlet.DispatcherType;
 
 import org.slf4j.Logger;
@@ -28,14 +32,10 @@ public class WebServer {
 
     private Server server;
     private HttpServlet appServlet;
-    private Filter appFilter;
 
 
     public void setAppServlet(HttpServlet servlet){
         this.appServlet = servlet;
-    }
-    public void setAppFilter(Filter filter){
-        this.appFilter = filter;
     }
 
     public void start() {
@@ -74,14 +74,7 @@ public class WebServer {
                 throw new NullPointerException("Servlet is not initialized");
             }
 
-            if (appFilter != null){
-                context.addFilter(new FilterHolder(appFilter),"/*",EnumSet.of(DispatcherType.REQUEST));
-            }
-            else {
-                LOGGER.warn("Filter is not initialized");
-                throw new NullPointerException("Servlet is not initialized");
-            }
-
+            context.addFilter( new FilterHolder( new CORSFilter()),"/*", EnumSet.of(DispatcherType.REQUEST));
 
             server.start();
 
