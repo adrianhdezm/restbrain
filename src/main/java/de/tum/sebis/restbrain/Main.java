@@ -7,9 +7,6 @@ import org.glassfish.jersey.servlet.ServletContainer;
 import io.swagger.inflector.config.Configuration;
 import io.swagger.inflector.SwaggerInflector;
 
-import java.io.IOException;
-
-
 public class Main {
     public static void main( String[] args ) throws Exception {
 
