@@ -1,11 +1,11 @@
 package de.tum.sebis.restbrain.models;
 
 
-public class Workspace {
+public class Pet {
     private long id;
     private String name;
 
-    public Workspace(long id, String name) {
+    public Pet(long id, String name) {
         this.id = id;
         this.name = name;
     }

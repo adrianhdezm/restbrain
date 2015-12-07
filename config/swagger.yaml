@@ -10,19 +10,19 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 basePath: /api
 tags:
-  - name: workspace
-    description: Everything about your Workspaces
+  - name: pet
+    description: Everything about your Pet
 
 schemes:
   - http
 paths:
-  /workspaces:
+  /pets:
     get:
       tags:
-        - workspace
-      summary: Get a list of workspaces
+        - pet
+      summary: Get a list of pets
       description: This can only be done by the logged in user.
-      operationId: getWorkspaces
+      operationId: getPets
       produces:
         - application/json
       responses:
@@ -31,10 +31,10 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Workspace'
+              $ref: '#/definitions/Pet'
 
 definitions:
-  Workspace:
+  Pet:
     properties:
       id:
         type: integer
